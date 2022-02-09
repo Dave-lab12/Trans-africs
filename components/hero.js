@@ -61,7 +61,7 @@ const Hero = () => {
                                 </li>
                                 <li
                                     className="flex flex-col cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none  justify-center"
-                                    onclick="dropdownHandler(this)"
+                                    onClick="dropdownHandler(this)"
                                 >
                                     <a href="javascript:void(0)">
                                         <span className="ml-2 font-bold">Stats</span>
@@ -74,7 +74,7 @@ const Hero = () => {
                                 </li>
                                 <li
                                     className="flex flex-col cursor-pointer text-gray-600 text-sm leading-3 tracking-normal py-2 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none  justify-center"
-                                    onclick="dropdownHandler(this)"
+                                    onClick="dropdownHandler(this)"
                                 >
                                     <a href="javascript:void(0)">
                                         <span className="ml-2 font-bold">Blog</span>
@@ -82,7 +82,7 @@ const Hero = () => {
                                 </li>
                                 <li
                                     className="flex flex-col cursor-pointer text-gray-600 text-sm leading-3 tracking-normal pt-2 pb-4 hover:text-indigo-700 focus:text-indigo-700 focus:outline-none  justify-center"
-                                    onclick="dropdownHandler(this)"
+                                    onClick="dropdownHandler(this)"
                                 >
                                     <a href="javascript:void(0)">
                                         <span className="ml-2 font-bold">About Us</span>
