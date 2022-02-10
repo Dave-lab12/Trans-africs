@@ -1,26 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { AiFillPlayCircle, AiFillPauseCircle } from 'react-icons/ai'
-import Player from './player';
+
 import { data } from '../data'
 import Link from 'next/link'
 const PlayCards = () => {
-    const [play, setPlay] = useState({})
-    const [isPlayingP, setIsPlayingP] = useState(false)
-    const [s, setS] = useState({});
 
-    const handlePlay = (el, index) => {
-        setS({ ...s, [index]: !s[index] });
-
-        setPlay(el)
-        setIsPlayingP(!isPlayingP)
-
-    }
-    useEffect(() => {
-        if (isPlayingP === false) {
-            setS({});
-        }
-    }, [isPlayingP])
-    console.log(s);
     return (
         <div className="p-10 grid grid-cols-1 sm:grid-cols-1 md:grid-cols-3 lg:grid-cols-3 xl:grid-cols-3 gap-5">
 
@@ -41,11 +25,8 @@ const PlayCards = () => {
                                 <button  ><Link href={`/podcast/${el.id}`}><AiFillPlayCircle className='text-5xl text-indigo-700' /></Link></button>
                             </div>
                         </div>
-                        {
-                            s[index] &&
 
-                            <Player play={play} isPlayingP={isPlayingP} setIsPlayingP={setIsPlayingP} />
-                        }
+
                     </>
                 })
             }

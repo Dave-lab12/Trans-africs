@@ -81,7 +81,7 @@ const NewPlayer = () => {
                     bg-gray-300
                     focus:outline-none focus:ring-0 focus:shadow-none' />
 
-                        <span className="text-white">{duration}</span>
+                        <span className="text-white">{(duration / 60).toFixed(2)}</span>
 
                     </div>
                     <div className='flex justify-between items-center text-7xl text-white mt-12'>
@@ -96,7 +96,8 @@ const NewPlayer = () => {
                         <span className='cursor-pointer' onClick={handleForwards} > <AiOutlineForward /></span>
                     </div>
                 </div >
-                <ReactPlayer url={`${audioData.audio}`} width="100%"
+                <ReactPlayer url={`${audioData.audio}`}
+                    style={{ display: 'none' }}
                     onProgress={(progress) => {
                         setPlayed(progress.playedSeconds);
                     }}
