@@ -112,15 +112,15 @@ const NewPlayer = () => {
                                 !isMuted &&
                                 <input type='range' ref={audioProgress} onChange={handleAudio} step="0.1"
                                     value={audioVolume} max={1} className='
-                            mx-4 form-range
-                            appearance-none
-                            rounded-3xl
-                            h-2
-                    
-                            
-                            p-0
-                            bg-gray-300
-                            focus:outline-none focus:ring-0 focus:shadow-none' />
+                                    mx-4 form-range
+                                    appearance-none
+                                    rounded-3xl
+                                    h-2
+                                    w-full
+                                    text-sm
+                                    p-0
+                                    bg-gray-300
+                                    focus:outline-none focus:ring-0 focus:shadow-none' />
                             }
                         </div>
                     </div>
