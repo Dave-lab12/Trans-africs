@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { IoMdArrowRoundBack } from 'react-icons/io'
-import { AiFillPlayCircle, AiFillPauseCircle, AiOutlineForward, AiOutlineBackward } from 'react-icons/ai'
-import { RiRewindMiniFill } from 'react-icons/ri'
+import { AiFillPlayCircle, AiFillPauseCircle, AiOutlineForward, AiOutlineBackward, AiFillSound } from 'react-icons/ai'
+import { BsFillVolumeMuteFill } from 'react-icons/bs'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { data } from '../data'
@@ -11,9 +11,13 @@ const NewPlayer = () => {
 
     let [audioData, setAudioData] = useState({})
     const [played, setPlayed] = useState(0);
-    const [isPlaying, setIsPlaying] = useState(0);
+    const [isPlaying, setIsPlaying] = useState(false);
     const [duration, setDuration] = useState(0);
+    const [isMuted, setIsMuted] = useState(false);
+    const [audioVolume, setAudioVolume] = useState(0.5)
     const progress = useRef(null);
+    const audioProgress = useRef(null);
+
     const player = useRef(null);
 
     const router = useRouter()
@@ -28,6 +32,7 @@ const NewPlayer = () => {
 
 
     }, [id])
+    console.log(audioVolume);
     const togglePlaying = () => {
         setIsPlaying(isPlaying => !isPlaying)
     }
@@ -35,13 +40,19 @@ const NewPlayer = () => {
         setDuration(duration)
     }
     const handleChange = () => {
-        // setPlayed(progress.current.value)
+
         player.current.seekTo(progress.current.value)
     }
+    const handleAudioToggle = () => {
+        setIsMuted(isMuted => !isMuted)
+    }
+    const handleAudio = () => {
+        setAudioVolume(audioProgress.current.value)
 
 
+    }
     const handleBackwards = () => {
-        // setPlayed(played => played + 30)
+
         player.current.seekTo(played - 30)
     }
     const handleForwards = () => {
@@ -94,6 +105,24 @@ const NewPlayer = () => {
 
                         </span>
                         <span className='cursor-pointer' onClick={handleForwards} > <AiOutlineForward /></span>
+                        <div className='flex items-center'>
+
+                            <span className='cursor-pointer' onClick={handleAudioToggle} > {isMuted ? <BsFillVolumeMuteFill /> : <AiFillSound />} </span>
+                            {
+                                !isMuted &&
+                                <input type='range' ref={audioProgress} onChange={handleAudio} step="0.1"
+                                    value={audioVolume} max={1} className='
+                            mx-4 form-range
+                            appearance-none
+                            rounded-3xl
+                            h-2
+                    
+                            
+                            p-0
+                            bg-gray-300
+                            focus:outline-none focus:ring-0 focus:shadow-none' />
+                            }
+                        </div>
                     </div>
                 </div >
                 <ReactPlayer url={`${audioData.audio}`}
@@ -104,6 +133,8 @@ const NewPlayer = () => {
                     ref={player}
                     playing={isPlaying}
                     onDuration={onDuration}
+                    volume={audioVolume}
+                    muted={isMuted}
                 />
             </div >);
     };
