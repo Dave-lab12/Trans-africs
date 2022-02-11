@@ -1,4 +1,5 @@
 import React from "react";
+import Link from 'next/link'
 function Footer() {
     return (
         <>
@@ -11,13 +12,13 @@ function Footer() {
                             <ul className="md:flex items-center">
                                 <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0">About</li>
                                 <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0">
-                                    Podcast
+                                    <Link href='/podcast'>    Podcast </Link>
                                 </li>
                                 <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0">
-                                    login
+                                    <Link href='/login' >  login </Link>
                                 </li>
                                 <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0">
-                                    signup
+                                    <Link href='/register'>  signup</Link>
                                 </li>
                                 {/* <li className=" md:mr-6 cursor-pointer pt-4 lg:py-0">Help</li> */}
                                 {/* <li className="cursor-pointer pt-4 lg:py-0">Privacy Policy</li> */}

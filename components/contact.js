@@ -31,7 +31,7 @@ export default function Contact() {
                                                 Address
                                             </h2>
                                             <h2 className="text-gray-800 text-base md:text-lg leading-8 tracking-wider mt-2">
-                                                Office #13, NSTP, NUST University H-12 Sector, Islamabad
+                                                Addis Ababa, wello sefer, hatal building
                                             </h2>
                                         </div>
                                         <div className="mt-4 md:mt-8">
