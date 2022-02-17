@@ -2,6 +2,9 @@
 import React from 'react'
 import Link from 'next/link'
 const Login = () => {
+
+
+
     return (
         <div className="w-full md:w-1/2 flex flex-col m-auto">
 

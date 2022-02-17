@@ -39,10 +39,10 @@ export default function Contact() {
                                                 Contact
                                             </h2>
                                             <h2 className="text-gray-800 text-base md:text-lg leading-8 tracking-wider mt-2">
-                                                +92 051 4567890 (Phone)
+                                                +251 051 4567890 (Phone)
                                             </h2>
                                             <h2 className="text-gray-800 text-base md:text-lg leading-8 tracking-wider mt-2">
-                                                +92 123 4567890 (Cell)
+                                                +251 123 4567890 (Cell)
                                             </h2>
                                         </div>
                                         <div className="mt-4 md:mt-8">
@@ -50,7 +50,7 @@ export default function Contact() {
                                                 Email
                                             </h2>
                                             <h2 className="text-gray-800 text-base md:text-lg leading-8 tracking-wider mt-2">
-                                                alphasquad@example.com
+                                                transhumanism@example.com
                                             </h2>
                                         </div>
                                     </div>
@@ -71,7 +71,7 @@ export default function Contact() {
                                         <input
                                             className="mt-3 text-base border-2 w-11/12 lg:w-full xl:w-10/12 hover:border-indigo-600 focus:border-indigo-600 focus:outline-none border-black py-5 pl-4 text-gray-800"
                                             type="text"
-                                            placeholder="Justin Timberlake"
+                                            placeholder="example"
                                         />
                                     </div>
                                     <div className="mt-4 md:mt-8">
