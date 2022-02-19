@@ -64,7 +64,7 @@ const NewPlayer = () => {
     if (audioData) {
 
         return (
-            <div className='h-fit bg-indigo-400 py-12 px-32'>
+            <div className='h-fit bg-indigo-400 md:py-12 md:px-32 p-10'>
                 {/* <audio ref={audioPlayer} src={audioData.audio} preload="metadata"></audio> */}
                 <div className='max-w-screen-md m-auto'>
                     <div className='flex items-center text-white text-xl cursor-pointer'>
@@ -73,8 +73,8 @@ const NewPlayer = () => {
                         <span className='mx-2'> <Link href='/podcast'>Back</Link></span>
                     </div>
 
-                    <div className='flex items-center justify-center mb-24 gap-24 pt-8'>
-                        <img className='gap-10 max-w-md' src={audioData.image} alt='album cover' />
+                    <div className='flex items-center justify-center flex-col-reverse md:flex-row mb-24 gap-24 pt-8'>
+                        <img className='gap-10 max-w-md w-full' src={audioData.image} alt='album cover' />
                         <div>
                             <h1 className='text-5xl text-white font-extrabold'>{audioData.title}</h1>
                         </div>
@@ -95,7 +95,7 @@ const NewPlayer = () => {
                         <span className="text-white">{(duration / 60).toFixed(2)}</span>
 
                     </div>
-                    <div className='flex justify-between items-center text-7xl text-white mt-12'>
+                    <div className='flex justify-between items-center text-3xl md:text-7xl text-white mt-12'>
 
                         <span className='cursor-pointer' onClick={handleBackwards}> <AiOutlineBackward /></span>
                         <span className='cursor-pointer' onClick={togglePlaying}>

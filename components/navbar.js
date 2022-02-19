@@ -96,7 +96,7 @@ const Navbar = () => {
                     <h1 className=" font-normal text-2xl leading-6 text-gray-800">
                         <Link href='/'> Transhumanism</Link>
                     </h1>
-                    <h1 className=" font-normal text-2xl leading-6 text-gray-800">
+                    <h1 className=" font-normal hidden md:text-2xl md:block leading-6 text-gray-800">
                         <Link href='/podcast'>  Podcast</Link>
                     </h1>
                 </div>
@@ -272,8 +272,12 @@ const Navbar = () => {
                         <Link href='/login'>  Sign In</Link>
 
                     </button>
+                    <button className="rounded-md flex space-x-2 w-full h-10 font-normal text-sm leading-3 text-black bg-indigo-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center">
+                        <Link href='/podcast'> Podcast</Link>
+                    </button>
 
                 </div>
+
             </div>
         </nav>
     </div>;

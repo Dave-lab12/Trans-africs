@@ -6,6 +6,8 @@ import Footer from '../components/footer'
 import Hero from '../components/hero'
 import Navbar from '../components/navbar'
 import Newsletter from '../components/Newsletter'
+import Parallax from '../components/Parallax'
+import VideoSection from '../components/videoSection'
 
 
 export default function Home() {
@@ -14,7 +16,9 @@ export default function Home() {
       <Navbar />
       <Hero />
       <About />
+      <Parallax />
       <Newsletter />
+      <VideoSection />
       <Contact />
       <Footer />
     </>
