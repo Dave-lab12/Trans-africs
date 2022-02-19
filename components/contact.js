@@ -1,4 +1,6 @@
 import React from "react";
+// import mask from '../public/africaMask.jpg'
+import mask from '/public/africaMask-removebg-preview.png'
 export default function Contact() {
     return (
         <>
@@ -88,6 +90,8 @@ export default function Contact() {
                                         <p className="text-gray-800 text-base font-medium">
                                             Message
                                         </p>
+                                        <img src={mask.src} alt='sd' className="absolute w-1/5  -right-10 animate-bounce" />
+
                                         <textarea
                                             className="mt-3 text-base border-2 w-11/12 lg:w-full xl:w-10/12 resize-none hover:border-indigo-600 focus:border-indigo-600 focus:outline-none border-black xl:h-40 py-5 pl-4 text-gray-800"
                                             type="text"
