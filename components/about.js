@@ -9,7 +9,7 @@ const About = () => {
             <div style={{ backgroundImage: `url(${aboutImg.src})` }} className={styles.wrapper} ></div>
 
             <div id="about" className="flex flex-col md:flex-row w-full">
-                <div className="w-1/2 h-screen flex-1 invisible md:visible">
+                <div className="w-1/2 h-screen flex-1 hidden md:inline">
                     <img
                         className="w-full h-full "
                         src={pattern2.src}
@@ -17,7 +17,7 @@ const About = () => {
                     />
 
                 </div>
-                <div className=" ml-24 mr-12 flex-1">
+                <div className="m-2 md:ml-24 md:mr-12 flex-1">
                     <div className="w-full " >
                         <h2 className="w-full font-bold lg:text-4xl text-3xl lg:leading-10 leading-9 text-center">
                             About Transhumanism Africa

@@ -90,7 +90,7 @@ export default function Contact() {
                                         <p className="text-gray-800 text-base font-medium">
                                             Message
                                         </p>
-                                        <img src={mask.src} alt='sd' className="absolute w-1/5  -right-10 animate-bounce" />
+                                        <img src={mask.src} alt='mask' className=" absolute w-1/5 -bottom-20  md:-right-10 animate-bounce " />
 
                                         <textarea
                                             className="mt-3 text-base border-2 w-11/12 lg:w-full xl:w-10/12 resize-none hover:border-indigo-600 focus:border-indigo-600 focus:outline-none border-black xl:h-40 py-5 pl-4 text-gray-800"
