@@ -7,6 +7,7 @@ import Hero from '../components/hero'
 import Navbar from '../components/navbar'
 import Newsletter from '../components/Newsletter'
 import Parallax from '../components/Parallax'
+import Teams from '../components/teams'
 import VideoSection from '../components/videoSection'
 
 
@@ -19,6 +20,7 @@ export default function Home() {
       <Parallax />
       <Newsletter />
       <VideoSection />
+      <Teams />
       <Contact />
       <Footer />
     </>
