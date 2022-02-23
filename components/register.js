@@ -11,9 +11,14 @@ const Register = () => {
         } else if (userData.password !== userData.confirm) {
             setError({ ...error, isValid: true, message: 'passwords does not match' })
         } else {
-            axios.post('/api/users', {
-                userData
-            })
+            try {
+
+                axios.post('api/users', {
+                    userData
+                })
+            } catch (error) {
+                console.log(error);
+            }
         }
 
     }
@@ -44,7 +49,7 @@ const Register = () => {
                     </div>
                     <div>
                         <label className="text-gray-800 font-semibold block my-3 text-md" htmlFor="email">Email</label>
-                        <input className="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="text" name="email" id="email" placeholder="@email" onChange={(e) => handleChange(e)} />
+                        <input className="w-full bg-gray-100 px-4 py-2 rounded-lg focus:outline-none" type="email" name="email" id="email" placeholder="@email" onChange={(e) => handleChange(e)} />
                     </div>
                     <div>
                         <label className="text-gray-800 font-semibold block my-3 text-md" htmlFor="firstname">First name</label>
