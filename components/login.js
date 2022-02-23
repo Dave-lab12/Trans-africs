@@ -24,9 +24,9 @@ const Login = () => {
 
                     <input type="submit" value="Log In" className="bg-black text-white font-bold text-lg hover:bg-gray-700 p-2 mt-8" />
                 </form>
-                <div className="text-center pt-12 pb-12">
-                    <p>Don&apos;t have an account? <Link href="/register" className="underline font-semibold">Register here.</Link></p>
-                </div>
+                <Link href="/register"><a><div className="text-center pt-12 pb-12">
+                    <p className="underline font-semibold">Don&apos;t have an account? Register here.</p>
+                </div></a></Link>
             </div>
 
         </div>
