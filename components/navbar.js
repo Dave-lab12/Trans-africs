@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link'
-const Navbar = () => {
+
+const Navbar = ({ session, signOut }) => {
     const [show, setshow] = useState(false);
     return <div className=" bg-white ">
         <nav className="2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4">
@@ -100,17 +101,29 @@ const Navbar = () => {
                         <Link href='/podcast'>  Podcast</Link>
                     </h1>
                 </div>
-                <div className="hidden sm:flex flex-row space-x-4">
-                    <Link href='/register'><a>
-                        <button className="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center">
-                            Sign Up
-                        </button>
-                    </a></Link>
-                    <Link href='/login'><a><button className="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center">
-                        Sign In
 
-                    </button></a></Link>
-                </div>
+                {
+                    session ?
+                        <div className="hidden sm:flex flex-row space-x-4">
+                            <button onClick={() => signOut()} className="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center">
+                                Sign out
+                            </button>
+                        </div>
+                        :
+                        <div className="hidden sm:flex flex-row space-x-4">
+                            <Link href='/register'><a>
+                                <button className="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center">
+                                    Sign Up
+                                </button>
+                            </a></Link>
+                            <Link href='/login'><a>
+                                <button className="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-white bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-700 focus:bg-indigo-600 hover:bg-indigo-600 duration-150 justify-center items-center">
+                                    Sign In
+                                </button>
+                            </a></Link>
+                        </div>
+                }
+
                 {/* Burger Icon */}
                 <div
                     id="bgIcon"
@@ -280,8 +293,8 @@ const Navbar = () => {
                 </div>
 
             </div>
-        </nav>
-    </div>;
+        </nav >
+    </div >;
 };
 
 export default Navbar;

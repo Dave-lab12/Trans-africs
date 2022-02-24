@@ -1,5 +1,4 @@
-import Head from 'next/head'
-import Image from 'next/image'
+import { useSession, signOut } from 'next-auth/react'
 import About from '../components/about'
 import Contact from '../components/contact'
 import Footer from '../components/footer'
@@ -12,9 +11,11 @@ import VideoSection from '../components/videoSection'
 
 
 export default function Home() {
+  const { data: session } = useSession()
+  console.log(session);
   return (
     <>
-      <Navbar />
+      <Navbar session={session} signOut={signOut} />
       <Hero />
       <About />
       <Parallax />

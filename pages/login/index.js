@@ -4,6 +4,7 @@ import Login from '../../components/login'
 import Navbar from '../../components/navbar'
 
 const LoginPage = () => {
+
     return (
         <>
             <Navbar />
