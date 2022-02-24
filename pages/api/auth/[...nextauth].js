@@ -18,10 +18,11 @@ export default NextAuth({
                         email: credentials.email
                     }
                 })
-                console.log(users, credentials);
+                // console.log(users, credentials);
                 if (credentials.email === users.email && credentials.password === users.password) {
-
+                    console.log(users, 'sd');
                     return users
+
                 }
                 //login failed
                 return null
@@ -37,13 +38,17 @@ export default NextAuth({
             if (user) {
                 token.id = user.id
             }
+
             return token
+
         },
         session: ({ token, session }) => {
+
             if (token) {
                 session.id = token.id
             }
-            return session
+
+            return token
         }
     },
     secret: 'test',

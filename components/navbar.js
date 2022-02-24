@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
 import Link from 'next/link'
+import { useSession, signOut } from 'next-auth/react'
+const Navbar = () => {
+    const { data: session } = useSession()
 
-const Navbar = ({ session, signOut }) => {
-    const [show, setshow] = useState(false);
+
+    const [show, setShow] = useState(false);
     return <div className=" bg-white ">
         <nav className="2xl:container 2xl:mx-auto sm:py-6 sm:px-7 py-5 px-4">
             {/* For large and Medium-sized Screen */}
@@ -127,7 +130,7 @@ const Navbar = ({ session, signOut }) => {
                 {/* Burger Icon */}
                 <div
                     id="bgIcon"
-                    onClick={() => setshow(!show)}
+                    onClick={() => setShow(!show)}
                     className={`focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-800  justify-center items-center sm:hidden cursor-pointer`}
                 >
                     <svg

@@ -19,7 +19,7 @@ const Login = ({ csrfToken }) => {
                 password,
             }
         ).then((res) => {
-            console.log(res.status);
+            console.log(res);
             if (res.status === 200) {
                 router.push('/')
             } else {
