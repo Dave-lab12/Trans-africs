@@ -19,7 +19,9 @@ const Blog = () => {
     return (
         <>
             <Navbar />
-            <div><WriteBlog /></div>
+            <div>
+            <WriteBlog />
+            </div>
             <Footer />
         </>
     )

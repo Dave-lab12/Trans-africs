@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
 import axios from 'axios'
+import { useRouter } from 'next/router'
 const Register = () => {
+    const router = useRouter()
     const [userData, setUserData] = useState({})
     const [error, setError] = useState({ isValid: '', message: '' })
     const handleSubmit = (e) => {
@@ -16,6 +18,7 @@ const Register = () => {
                 axios.post('api/users', {
                     userData
                 })
+                router.push('/login')
             } catch (error) {
                 console.log(error);
             }
@@ -33,7 +36,7 @@ const Register = () => {
         removeWarning()
         return clearTimeout(removeWarning)
     }, [error.isValid])
-    console.log(userData);
+
     return (
         <div className="h-screen flex justify-center items-center">
             <div className=" lg:w-2/5 md:w-1/2 w-2/3">

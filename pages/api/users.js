@@ -10,18 +10,13 @@ export default async function handler(req, res) {
             console.log(username, email, password, firstname, lastname);
             const user = await prisma.User.create({
                 data: {
-                    username: username, password: password, firstname: firstname, email: email, lastname: lastname
+                    username: username, password: password, firstname: firstname, email: email, lastname: lastname, createdAt: new Date(),image:''
                 }
             })
-            console.log(user);
             res.status(200).json(user)
         } catch (error) {
-            console.log('error');
+         
             res.status(400).json(error)
         }
-    } else if (req.method === 'GET') {
-        const users = await prisma.User.findMany()
-        res.json(users)
-        // Handle any other HTTP method
-    }
+    } 
 }

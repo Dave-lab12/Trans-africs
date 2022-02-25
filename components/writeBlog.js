@@ -1,22 +1,48 @@
 import React, { useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
+import axios from 'axios';
+import { useSession, signOut } from 'next-auth/react'
+
 const WriteBlog = () => {
-    const [editorState, setEditorState] = useState('');
+    const { data: session } = useSession()
+    const [content, setContent] = useState({});
     const editorRef = useRef(null);
     const log = () => {
         if (editorRef.current) {
-            console.log(editorRef.current.getContent());
+            return editorRef.current.getContent()
         }
     };
-    console.log(log());
+    const handleChange = (e) => {
+        e.persist();
+        setContent(content => ({ ...content, [e.target.name]: e.target.value }));
+    }
+    console.log(content);
+    const handleSubmit = () => {
+        axios.post('api/blog', {
+            authorId: session.id,
+            title: content.title,
+            image: content.image,
+            author:session.name,
+            authorImg:session.image,
+            content: log()
+        })
+
+        // const t = {
+        //     authorId: session.id,
+        //     title: content.title,
+        //     image: content.image,
+        //     content: log()
+        // }
+        // console.log(t);
+    }
     return (
         <div>
             <h1 className='text-5xl text-center'>Write Your Blog</h1>
             <main className='flex items-center justify-center gap-3 my-12'>
                 <h1>Title</h1>
-                <input type="text" id="title" placeholder="Blog title" className="shadow-sm appearance-none border rounded  py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
+                <input type="text" id="title" placeholder="Blog title" name='title' onChange={e => handleChange(e)} className="shadow-sm appearance-none border rounded  py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
                 <h1>Featured image</h1>
-                <input type="file" id="title" className="shadow-sm appearance-none border rounded  py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
+                <input type="text" id="image" name='image' onChange={e => handleChange(e)} className="shadow-sm appearance-none border rounded  py-2 px-3 text-gray-700 mt-1 leading-tight focus:outline-none focus:shadow-outline" />
 
             </main>
             <section className="shadow  w-10/12 m-auto ">
@@ -39,7 +65,7 @@ const WriteBlog = () => {
                     }}
                 />
             </section>
-            <button onClick={log} className="bg-indigo-600 text-white p-3 px-5 flex justify-center m-auto my-5 rounded-xl">Publish</button>
+            <button onClick={handleSubmit} className="bg-indigo-600 text-white p-3 px-5 flex justify-center m-auto my-5 rounded-xl">Publish</button>
         </div>
     )
 }

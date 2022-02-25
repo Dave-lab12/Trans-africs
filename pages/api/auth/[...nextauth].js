@@ -37,6 +37,8 @@ export default NextAuth({
         jwt: async ({ token, user }) => {
             if (user) {
                 token.id = user.id
+                token.name = user.firstname
+                token.image = user.image
             }
 
             return token
@@ -46,9 +48,11 @@ export default NextAuth({
 
             if (token) {
                 session.id = token.id
+                session.name = token.name
+                session.image = token.image
             }
 
-            return token
+            return session
         }
     },
     secret: 'test',
