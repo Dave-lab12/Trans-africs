@@ -11,7 +11,7 @@ const About = () => {
             <div id="about" className="flex flex-col md:flex-row w-full">
                 <div className="w-1/2 h-screen flex-1 hidden md:inline">
                     <img
-                        className="w-full h-full "
+                        className="w-full h-full pt-20"
                         src={pattern2.src}
                         alt="pattern"
                     />

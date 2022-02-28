@@ -23,7 +23,7 @@ const NewPlayer = () => {
     const router = useRouter()
     let id = parseFloat(router.query.id)
     useEffect(() => {
-        console.log(data, id);
+
         data.map(el => {
             if (el.id === id) {
                 setAudioData(el)
@@ -32,7 +32,7 @@ const NewPlayer = () => {
 
 
     }, [id])
-    console.log(audioVolume);
+
     const togglePlaying = () => {
         setIsPlaying(isPlaying => !isPlaying)
     }

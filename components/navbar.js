@@ -5,30 +5,30 @@ import { Menu, Dropdown, Button } from 'antd';
 import { DownOutlined } from '@ant-design/icons';
 const Navbar = () => {
     const { data: session } = useSession()
-    console.log(session);
- const menu = (
-  <Menu>
-    <Menu.Item>
-    <Link href='/myblog'>
-      <a>
-        Write a Blog  
-    </a>
-    </Link>
-    </Menu.Item>
-    <Menu.Item>
-       <Link href='/profile'>
-      <a>
-        Profile
-    </a>
-    </Link>
-    </Menu.Item>
-    <Menu.Item>
-      <span onClick={() => signOut()}>
-       sign out
-      </span>
-    </Menu.Item>
-  </Menu>
-);
+
+    const menu = (
+        <Menu>
+            <Menu.Item>
+                <Link href='/myblog'>
+                    <a>
+                        Write a Blog
+                    </a>
+                </Link>
+            </Menu.Item>
+            <Menu.Item>
+                <Link href='/profile'>
+                    <a>
+                        Profile
+                    </a>
+                </Link>
+            </Menu.Item>
+            <Menu.Item>
+                <span onClick={() => signOut()}>
+                    sign out
+                </span>
+            </Menu.Item>
+        </Menu>
+    );
 
     const [show, setShow] = useState(false);
     return <div className=" bg-white ">
@@ -55,10 +55,10 @@ const Navbar = () => {
                             {/* <button onClick={() => signOut()} className="rounded-md flex space-x-2 w-24 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white border border-indigo-700 focus:outline-none focus:bg-gray-200 hover:bg-gray-200 duration-150 justify-center items-center">
                                 Sign out
                             </button> */}
-                              <Dropdown overlay={menu} trigger={['click']} className=" flex space-x-2 p-2 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white  border-indigo-700 focus:outline-none focus:bg-gray-200  duration-150 justify-center items-center">
-                             <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>{session.user.email}
-                              </a>
-                              </Dropdown>
+                            <Dropdown overlay={menu} trigger={['click']} className=" flex space-x-2 p-2 h-10 font-normal text-sm leading-3 text-indigo-700 bg-white  border-indigo-700 focus:outline-none focus:bg-gray-200  duration-150 justify-center items-center">
+                                <a className="ant-dropdown-link" onClick={e => e.preventDefault()}>{session.user.email}
+                                </a>
+                            </Dropdown>
                         </div>
                         :
                         <div className="hidden sm:flex flex-row space-x-4">

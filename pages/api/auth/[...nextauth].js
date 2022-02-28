@@ -18,9 +18,9 @@ export default NextAuth({
                         email: credentials.email
                     }
                 })
-                // console.log(users, credentials);
+
                 if (credentials.email === users.email && credentials.password === users.password) {
-                    console.log(users, 'sd');
+
                     return users
 
                 }

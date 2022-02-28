@@ -3,7 +3,7 @@ import React from 'react'
 const Parallax = () => {
   return (
     <header
-      className="flex items-center justify-center h-screen mb-12 bg-fixed bg-center bg-cover custom-img " style={{ backgroundImage: `url('https://images.unsplash.com/photo-1617791160536-598cf32026fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80')` }}
+      className="flex items-center justify-center h-screen  bg-fixed bg-center bg-cover custom-img " style={{ backgroundImage: `url('https://images.unsplash.com/photo-1617791160536-598cf32026fb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1364&q=80')` }}
     >
       <div >
         <h1 className='text-5xl text-yellow-50 flex items-center justify-center  text-center my-10'>Join the Movement</h1>

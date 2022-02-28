@@ -1,15 +1,19 @@
 import React from 'react'
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
-import {useRouter} from 'next/router'
-const ReadMore = () => {
-    const router = useRouter()
-    console.log(router);
+import { publicRequest } from '../../utils/api'
+import Parser from 'html-react-parser';
+
+const ReadMore = ({ BlogData }) => {
+  console.log(BlogData);
+  let d = ` <h1>d</h1>`
   return (
     <div>
-    <Navbar/>
-
-    <Footer/>
+      <Navbar />
+      <h1>{BlogData.title}</h1>
+      <p>{Parser(`${BlogData.content}`)}</p>
+      <img src={BlogData.image} />
+      <Footer />
     </div>
   )
 }
@@ -17,9 +21,15 @@ const ReadMore = () => {
 
 export default ReadMore
 
-export async function getStaticProps(context) {
-  console.log(context.params); // return { title: 'Mortal Kombat' }
+export async function getServerSideProps({ query }) {
+
+
+  const { data } = await publicRequest.get(`/blog?id=${query.id}`)
+
+
   return {
-    props: {}, // will be passed to the page component as props
+    props: {
+      BlogData: data
+    },
   }
 }

@@ -2,26 +2,27 @@ import React from 'react'
 import Footer from "../../components/footer";
 import Navbar from "../../components/navbar";
 import BlogList from "../../components/blogList";
-import axios from 'axios'
-export async function getServerSideProps(context) {
-  const getBlogs = await fetch('http://localhost:3000/api/blog')
-  const getBlogsjson = await getBlogs.json()
-return {
-    props: { 
-      getBlogsjson
-    } }
-
-
-}
-const Blog = ({getBlogsjson}) => {
+import { publicRequest } from '../../utils/api'
+const Blog = ({ data }) => {
 
   return (
     <div>
-    <Navbar/>
-    <BlogList blogList={getBlogsjson}/>
-    <Footer/>
+      <Navbar />
+      <BlogList blogList={data} />
+      <Footer />
     </div>
   )
+}
+export async function getServerSideProps(context) {
+  const { data } = await publicRequest.get(`/blog`)
+
+  return {
+    props: {
+      data
+    }
+  }
+
+
 }
 
 export default Blog

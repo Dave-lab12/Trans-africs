@@ -2,6 +2,9 @@ import React, { useRef, useState } from 'react';
 import { Editor } from '@tinymce/tinymce-react';
 import axios from 'axios';
 import { useSession, signOut } from 'next-auth/react'
+import { notification } from 'antd'
+
+
 
 const WriteBlog = () => {
     const { data: session } = useSession()
@@ -12,28 +15,36 @@ const WriteBlog = () => {
             return editorRef.current.getContent()
         }
     };
+    const openNotification = () => {
+        notification.open({
+            message: 'New Article published',
+            description:
+                `${content.title} has been successfully published`,
+            onClick: () => {
+                console.log('Notification Clicked!');
+            },
+        });
+    };
     const handleChange = (e) => {
         e.persist();
         setContent(content => ({ ...content, [e.target.name]: e.target.value }));
     }
-    console.log(content);
+
     const handleSubmit = () => {
         axios.post('api/blog', {
             authorId: session.id,
             title: content.title,
             image: content.image,
-            author:session.name,
-            authorImg:session.image,
+            author: session.name,
+            authorImg: session.image,
             content: log()
-        })
+        }).then((res) => {
+            openNotification()
+            setContent({ title: '', image: '' })
+            editorRef.current = ''
+        }).catch(err => {
 
-        // const t = {
-        //     authorId: session.id,
-        //     title: content.title,
-        //     image: content.image,
-        //     content: log()
-        // }
-        // console.log(t);
+        })
     }
     return (
         <div>
