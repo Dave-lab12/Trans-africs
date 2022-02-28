@@ -14,6 +14,15 @@ const Navbar = () => {
                         Write a Blog
                     </a>
                 </Link>
+
+            </Menu.Item>
+            <Menu.Item>
+                <Link href='/myBlogList'>
+                    <a>
+                        My Blog
+                    </a>
+                </Link>
+
             </Menu.Item>
             <Menu.Item>
                 <Link href='/profile'>
